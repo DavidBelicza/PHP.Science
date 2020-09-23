@@ -1,0 +1,143 @@
+
+        <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+                <meta charset="utf-8">
+                <title>PageRank - PHP.Science</title>
+                <meta name="description" content="PageRank implementation in PHP with extendable features (PHP 7.4)">
+                <meta name="keywords" content="php,science,pagerank,search,algorithm,google">
+                <meta name="robots" content="INDEX,FOLLOW">
+                <meta name="author" content="David Belicza, PHP.SCIENCE, https://php.science">
+                <meta name="viewport" content="width=device-width user-scalable=0 initial-scale=1.0">
+                <meta name="theme-color" content="#ffffff">
+                <link rel="stylesheet" href="/style.css" type="text/css">
+                <link rel="icon" href="/favicon.ico" type="image/x-icon">
+                <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+                <link rel="canonical" href="https://raw.githubusercontent.com/PHP-Science/PageRank/master/README.md">
+            </head>
+            <body>
+                <div class="header">
+                    <div class="header-inner">
+                        <span class="logo">
+                            <a href="/">
+                                PHP.Science
+                            </a>
+                        </span>
+                        <ul>
+                            
+        <li class="home">
+            <span>
+                <a href="/">
+                    Home
+                </a>
+            </span>
+        </li>
+    
+            <li class=" current ">
+                <span>
+                    <a href="/pagerank">
+                        PageRank
+                    </a>
+                </span>
+            </li>
+        
+            <li class="  ">
+                <span>
+                    <a href="/textrank">
+                        TextRank
+                    </a>
+                </span>
+            </li>
+        
+                        </ul>
+                    </div>
+                </div>
+                <div class="documentation">
+    <h1 align="center">
+PageRank
+</h1>
+<p align="center">
+	<a href="https://github.com/PHP-Science/PageRank/actions">
+		<img src="https://github.com/php-science/pagerank/workflows/tests/badge.svg"/>
+	</a>
+	<a href="https://codecov.io/gh/PHP-Science/PageRank">
+		<img src="https://codecov.io/gh/PHP-Science/PageRank/branch/master/graph/badge.svg"/>
+	</a>
+	<a href="https://packagist.org/packages/php-science/pagerank">
+        <img src="https://poser.pugx.org/php-science/pagerank/v/stable.svg"/>
+    </a>
+</p>
+<p align="center">
+This source code is an OOP implementation of the PageRank algorithm.
+<br />The minimum required PHP version is 7.4.
+<br />
+<br />
+</p>
+<h2>About</h2>
+<p>This implementation is based on Larry Page's PageRank algorithm. It weights the connections between the nodes in a graph.
+In theory, the nodes can be websites, words, people, etc. As the number of the nodes are increasing the algorithm is
+becoming slower. To scale the size and handle millions of nodes, the accuracy of the calculation can be limited, and the
+long-running calculation can be scheduled in batches using the Strategy OOP pattern in the implementation.</p>
+<h2>Workflow</h2>
+<ul>
+<li>It calculates the initial ranking values. At the first iteration, all the nodes have the same rank.</li>
+<li>Iterates the nodes using the power method/iteration technique over and over again until it reaches the maximum
+iteration number.</li>
+<li>However, the iteration stops when the ranks are accurate enough even if the max iteration didn't reach its limit.</li>
+<li>The accuracy measured by the float epsilon constant.</li>
+<li>At the end, the algorithm normalizes the ranks between 0 and 1 and then scale them between 1 and 10. The scaling range
+is configurable.</li>
+<li>Getting, setting, updating the nodes from the resource is a responsibility of the NodeDataSourceStrategyInterface.</li>
+<li>The package provides a simple implementation of the NodeDataSourceStrategyInterface that only keeps the nodes in the
+memory. Another way of implementing the NodeDataSourceStrategyInterface could be a simple class that uses an ORM to
+handle the node collection.</li>
+</ul>
+<h2>Install</h2>
+<pre><code>composer require php-science/pagerank
+</code></pre>
+<h2>Example</h2>
+<pre><code class="language-php">$dataSource = $this-&gt;getYourDataSource();
+
+$nodeBuilder = new NodeBuilder();
+$nodeCollectionBuilder = new NodeCollectionBuilder();
+$strategy = new MemorySourceStrategy(
+    $nodeBuilder,
+    $nodeCollectionBuilder,
+    $dataSource
+);
+
+$rankComparator = new RankComparator();
+$ranking = new Ranking(
+    $rankComparator,
+    $strategy
+);
+
+$normalizer = new Normalizer();
+
+$pageRankAlgorithm = new PageRankAlgorithm(
+    $ranking,
+    $strategy,
+    $normalizer
+);
+
+$maxIteration = 100;
+$nodeCollection = $pageRankAlgorithm-&gt;run($maxIteration);
+
+var_dump($nodeCollection-&gt;getNodes());
+</code></pre>
+<h2>Functional Sample</h2>
+<ul>
+<li>test: <a href="https://github.com/PHP-Science/PageRank/blob/master/tests/functional/Service/PageRankAlgorithmTest.php">Functional test case</a>
+</li>
+<li>running the test: <code>composer test</code>
+</li>
+</ul>
+
+        </div>
+            <div class="footer">
+                <p>PHP.Science</p>
+            </div>
+        </body>
+        </html>
+    
