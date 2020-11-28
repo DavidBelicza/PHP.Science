@@ -5,7 +5,7 @@
                 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
                 <meta charset="utf-8">
                 <title>TextRank - PHP.Science</title>
-                <meta name="description" content="TextRank (automatic text summarization) for PHP7">
+                <meta name="description" content="TextRank (automatic text summarization) for PHP8">
                 <meta name="keywords" content="php,science,textrank,search,algorithm,summarization">
                 <meta name="robots" content="INDEX,FOLLOW">
                 <meta name="author" content="David Belicza, PHP.SCIENCE, https://php.science">
@@ -14,7 +14,7 @@
                 <link rel="stylesheet" href="/style.css" type="text/css">
                 <link rel="icon" href="/favicon.ico" type="image/x-icon">
                 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-                <link rel="canonical" href="https://raw.githubusercontent.com/PHP-Science/TextRank/master/readme.md">
+                <link rel="canonical" href="https://php.science/textrank/">
             </head>
             <body>
                 <div class="header">
@@ -54,52 +54,28 @@
                     </div>
                 </div>
                 <div class="documentation">
-    <h1>PHP.Science - TextRank</h1>
-<p><a href="https://travis-ci.org/DavidBelicza/PHP-Science-TextRank"><img src="https://travis-ci.org/DavidBelicza/PHP-Science-TextRank.svg?branch=master" alt="Build Status" /></a>
-<a href="https://packagist.org/packages/php-science/textrank"><img src="https://poser.pugx.org/php-science/textrank/v/stable.svg" alt="Latest Stable Version" /></a>
-<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-33CCFF.svg" alt="License" /></a>
-<a href="https://packagist.org/packages/php-science/textrank"><img src="https://poser.pugx.org/php-science/textrank/composerlock" alt="composer.lock" /></a></p>
-<p>This source code is an implementation of the TextRank algorithm (Automatic summarization) on PHP7 strict mode. It can summarize a text, article for example to a short paragraph. Before it would start the summarizing it removes the junk words what are defined in the Stopwords namespace. It is possible to extend it with another languages.</p>
-<img src="http://iceducation.ca/wp-content/uploads/2018/01/Science.png" />
-<h2>Authors, Contributors</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>GitHub user</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>David Belicza</td>
-<td>@DavidBelicza</td>
-</tr>
-<tr>
-<td>Riccardo Marton</td>
-<td>@riccardomarton</td>
-</tr>
-<tr>
-<td>Syndesi</td>
-<td>@Syndesi</td>
-</tr>
-<tr>
-<td>vincentsch</td>
-<td>@vincentsch</td>
-</tr>
-<tr>
-<td>Andrew Welch</td>
-<td>@khalwat</td>
-</tr>
-<tr>
-<td>Andrey Astashov</td>
-<td>@mvcaaa</td>
-</tr>
-<tr>
-<td>Leo Toneff</td>
-<td>@bragle</td>
-</tr>
-</tbody>
-</table>
+    <h1 align="center">
+TextRank
+</h1>
+<p align="center">
+    <a href="https://github.com/PHP-Science/TextRank/actions">
+		<img src="https://github.com/php-science/textrank/workflows/tests/badge.svg"/>
+	</a>
+	<a href="https://packagist.org/packages/php-science/textrank">
+	    <img src="https://poser.pugx.org/php-science/textrank/v/stable.svg" />
+	</a>
+	<a href="https://packagist.org/packages/php-science/textrank">
+        <img src="https://poser.pugx.org/php-science/textrank/downloads"/>
+    </a>
+	<a href="https://github.com/PHP-Science/TextRank/blob/master/LICENSE">
+        <img src="https://img.shields.io/badge/license-MIT-FFF300.svg"/>
+    </a>
+</p>
+<p align="center">
+This source code is an implementation of the TextRank algorithm (Automatic summarization) on PHP7 strict mode. It can summarize a text, article for example to a short paragraph. Before it would start the summarizing it removes the junk words what are defined in the Stopwords namespace. It is possible to extend it with another languages.
+<br />
+<br />
+</p>
 <h2>TextRank or Automatic summarization</h2>
 <blockquote>
 <p>Automatic summarization is the process of reducing a text document with a computer program in order to create a summary that retains the most important points of the original document. Technologies that can make a coherent summary take into account variables such as length, writing style and syntax. Automatic data summarization is part of machine learning and data mining. The main idea of summarization is to find a representative subset of the data, which contains the information of the entire set. Summarization technologies are used in a large number of sectors in industry today. - Wikipedia</p>
@@ -145,7 +121,50 @@ $result = $api-&gt;getHighlights($text);
 // Array of the most important sentences from the text:
 $result = $api-&gt;summarizeTextBasic($text);
 </code></pre>
-<p>More examples: https://github.com/DoveID/PHP-Science-TextRank/blob/master/tests/TextRankFacadeTest.php</p>
+<p>More examples:</p>
+<ul>
+<li>https://github.com/DoveID/PHP-Science-TextRank/blob/master/tests/TextRankFacadeTest.php</li>
+<li>https://php.science</li>
+</ul>
+<h2>Authors, Contributors</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>GitHub user</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>David Belicza</td>
+<td>@DavidBelicza</td>
+</tr>
+<tr>
+<td>Riccardo Marton</td>
+<td>@riccardomarton</td>
+</tr>
+<tr>
+<td>Syndesi</td>
+<td>@Syndesi</td>
+</tr>
+<tr>
+<td>vincentsch</td>
+<td>@vincentsch</td>
+</tr>
+<tr>
+<td>Andrew Welch</td>
+<td>@khalwat</td>
+</tr>
+<tr>
+<td>Andrey Astashov</td>
+<td>@mvcaaa</td>
+</tr>
+<tr>
+<td>Leo Toneff</td>
+<td>@bragle</td>
+</tr>
+</tbody>
+</table>
 
         </div>
             <div class="footer">
